@@ -1,33 +1,41 @@
-Here is the text formatted with bullet circles (•), utilizing separate lines for proper list rendering, and with all formatting symbols like # and * completely removed.
-
 Parameterized Synchronous FIFO Buffer – RTL and Functional Verification
 
 📌 Project Overview
-This project implements a fully parameterized, synthesizable Synchronous FIFO (First-In, First-Out) memory queue in Verilog HDL and verifies its functionality using a rigorous SystemVerilog testbench suite.
+This project implements a fully parameterized, synthesizable Synchronous FIFO (First-In, First-Out) memory queue in Verilog HDL and verifies its functionality using a rigorous SystemVerilog testbench suite. 
 
 The architecture is tailored for high-speed, single-clock data buffering between internal digital design blocks, incorporating overflow protection, dynamic pointer width evaluation, and robust boundary status tracking flags.
 
 🏗️ Architecture
 The accelerator consists of the following modules:
+
 • Parameterized Matrix Memory Array
+
 • Write Pointer Control Logic
+
 • Read Pointer Control Logic
+
 • Status Flag Generator (full, empty)
+
 • Safety Overflow Lock
 
 📷 Architecture Diagram
- <img width="2816" height="1536" alt="architecture" src="https://github.com/user-attachments/assets/595fdf25-596e-4113-9326-7015529337f0" />
+
+<img width="2816" height="1536" alt="architecture" src="https://github.com/user-attachments/assets/4d8b569f-62e3-4044-baf4-6e4b25d776ed" />
 
 📷 Architecture Diagram Animation
 
+https://github.com/user-attachments/assets/9dd3abf3-9ec3-465c-ad6a-19ced21b2f3e
 
-https://github.com/user-attachments/assets/b025186f-be0f-4cad-bccb-fda66b311e1b
+ 
 
 
 🧠 RTL Design
 • Written entirely in synthesizable Verilog HDL
+
 • Modular pipelined architecture
+
 • Phase Inversion Flag Strategy (utilizes an extra pointer MSB to accurately distinguish between Full and Empty states without resource-heavy counter modules)
+
 • Robust Boundary Handling (automatically isolates and discards accidental overflow write cycles to ensure internal data integrity)
 
 RTL Source Files:
@@ -37,13 +45,18 @@ Parameterized_Synchronous_FIFO.srcs/
 
 📊 Simulation & Verification
 Functional verification performed using waveform analysis in Xilinx Vivado XSIM.
+
 • Verified handshake correctness and reset state validation
+
 • Validated flag logic transitions under consecutive read/write sequences
+
 • Confirmed overflow protection blocks data injection at maximum capacity
+
 • Ensured no X-propagation in final validated simulation
 
 📷 Waveform Verification
-<img width="1315" height="777" alt="image" src="https://github.com/user-attachments/assets/9bde266f-962c-4643-808c-258e1ece7f51" />
+<img width="1304" height="779" alt="image" src="https://github.com/user-attachments/assets/8ce8e47e-7a18-4257-8bcc-b2fc8dfcd386" />
+
 
 📦 Generated Outputs & Directory Structure
 Located in:
@@ -56,33 +69,50 @@ Parameterized_Synchronous_FIFO/
 
 📈 Design Metrics
 Target Device: AMD Artix-7 xc7a35tcpg236-1
+
 • Data Width Capacity: 8-bit default parallel bus
+
 • Memory Register Footprint: 16 allocation slots (16 by 8 memory matrix)
+
 • Address Pointer Resolution: 4-bit indexing paths + 1 phase bit (5 bits total tracking width)
+
 • Clock Domain Environment: Single-source Synchronous Clock Tree topology
 
 🎯 Key Learnings
 • FIFO Boundary Tracking using MSB phase inversion wrapping techniques
+
 • Writing scalable hardware architectures using clog2 system functions for automatic pointer width calculation
+
 • Constructing SystemVerilog verification scripts with urandom_range stimulus loops
+
 • Handling complete design workflows, directory trees, and wave viewer tools within Vivado
+
 • Leveraging industrial Git commands to deploy hardware engineering workspaces
 
 🛠️ Tools Used
 • Verilog HDL
+
 • SystemVerilog
+
 • Xilinx Vivado 2025.2
+
 • Vivado XSIM Engine
+
 • Git and PowerShell
 
 🚀 Status
-• RTL Design Architecture Complete
+• RTL Design Architecture Complete  
 
-• Automated Testbench Complete
+• Automated Testbench Complete  
 
-• Functional Timeline Verification Complete
+• Functional Timeline Verification Complete  
 
-• Zero X-Propagation or Core Flag Inversions Detected
+• Zero X-Propagation or Core Flag Inversions Detected  
 
 👨‍💻 Author
-Chandan M Electronics and VLSI Engineering Student
+
+Chandan M
+
+Electronics and VLSI Engineering Student
+
+Bengluru
